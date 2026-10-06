@@ -75,6 +75,12 @@ WHERE t.product_category_name IN ("audio", "electronics", "computers", "computer
 
 
 -- 3. What’s the average price of the products being sold?
+
+SELECT AVG(oi.price) AS avg_price
+FROM order_items oi
+JOIN orders o ON o.order_id = oi.order_id
+WHERE o.order_status = 'delivered';
+
 -- 4. Are expensive tech products popular? *
 --  TIP: Look at the function CASE WHEN to accomplish this task.
 
