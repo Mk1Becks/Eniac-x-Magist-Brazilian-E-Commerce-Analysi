@@ -66,7 +66,7 @@ ORDER BY product_category_name_english;
 -- 2. How many products of these tech categories have been sold (within the time window of the database snapshot)?
 --What percentage does that represent from the overall number of products sold?
 
-SELECT COUNT(oi.product_id) AS total_tech_sales, (SELECT COUNT(*) FROM order_items) AS total_sales
+SELECT COUNT(oi.product_id) AS total_tech_sales, (SELECT COUNT(*) FROM order_items) AS total_sales,
 ROUND((Count(oi.product_id) / (SELECT COUNT(*) FROM order_items)) * 100, 2) AS percentage_tech_sales
 FROM order_items AS oi
 JOIN products AS p USING(product_id)
